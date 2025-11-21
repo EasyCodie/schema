@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #09090b; /* zinc-950 */
+  --foreground: #f4f4f5; /* zinc-50 */
+  --card: #0f0f12; /* zinc-900 */
+  --card-hover: #18181b; /* zinc-800 */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(167, 139, 250, 0.35);
+  --text-secondary: #a1a1aa; /* zinc-400 */
+  --text-tertiary: #52525b; /* zinc-600 */
+  --accent-primary: #8b5cf6;
+  --status-focus: #34d399;
+  --status-missed: rgba(244, 63, 94, 0.8);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] min-h-screen antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.08), transparent 45%),
+      radial-gradient(circle at 80% 0%, rgba(45, 212, 191, 0.08), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background-color: rgba(139, 92, 246, 0.35);
+    color: var(--foreground);
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-[var(--border-subtle)] bg-[var(--card)] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)];
+  }
+
+  .panel-muted {
+    @apply rounded-2xl border border-dashed border-[var(--border-subtle)] bg-[color-mix(in_oklab,var(--card),var(--foreground)_2%)] p-6;
+  }
+}
